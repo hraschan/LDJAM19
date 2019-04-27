@@ -441,6 +441,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9579096, guid: fe327d4f56b785c4cb974b2ec07a6450, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: d45331e8a1a3a12439a326b4d6b140e9, type: 3}
+    - target: {fileID: 3704124367185176263, guid: fe327d4f56b785c4cb974b2ec07a6450,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704124367185176263, guid: fe327d4f56b785c4cb974b2ec07a6450,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704124367185176263, guid: fe327d4f56b785c4cb974b2ec07a6450,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704124367185176263, guid: fe327d4f56b785c4cb974b2ec07a6450,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 6768262340831103933, guid: fe327d4f56b785c4cb974b2ec07a6450,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe327d4f56b785c4cb974b2ec07a6450, type: 3}
 --- !u!1 &470713834
@@ -717,7 +746,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b81b1e19ef26274ca39a1a05f3b4917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  object1: {fileID: 244895313}
+  object1: {fileID: -8052994932809076077, guid: d45331e8a1a3a12439a326b4d6b140e9,
+    type: 3}
   colliders: []
   raduis: 10.85
 --- !u!1 &1537924532

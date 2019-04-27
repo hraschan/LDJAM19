@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;  
+using UnityEngine;
 
 public class PickupSpawner : MonoBehaviour
 {
     //Objects
-    public GameObject object1;
+    [SerializeField]
+    private GameObject[] object1;
     //public GameObject object2;
     //public GameObject object3;
 
@@ -26,7 +27,15 @@ public class PickupSpawner : MonoBehaviour
     {
         spawnItem();
         preventSpawnOverlap();
+        object1 = Resources.LoadAll<GameObject>("Prefab");
 
+    }
+    void SpawnRandomObject()
+    {
+        //spawns item in array position between 0 and 100
+        string whichItem = Random.Range(0, 100).ToString();  
+
+        //GameObject myObj = Instantiate(object1[whichItem]) as GameObject;
     }
     public void spawnItem() {
 
@@ -53,7 +62,7 @@ public class PickupSpawner : MonoBehaviour
                 Debug.Log("To many attemts");
             }
         }
-        object1.transform.position = spawnPos;
+       // object1.transform.position = spawnPos;
     }
     bool preventSpawnOverlap()
     {
