@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CubeMove : MonoBehaviour
+public class FrankensteinController : MonoBehaviour
 {
     public float moveSpeed = 3f;
     // Use this for initialization
