@@ -5,7 +5,7 @@ using UnityEngine;
 public class PickupSpawner : MonoBehaviour
 {
     //Objects
-    public GameObject[] RadomObjt = Random.;
+    public GameObject object1;
     //public GameObject object2;
     //public GameObject object3;
 
