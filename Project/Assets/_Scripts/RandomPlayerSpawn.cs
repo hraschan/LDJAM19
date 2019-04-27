@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class RandomPlayerSpawn : MonoBehaviour
 {
-
     public GameObject player;
     private float positionX;
-    private float positionZ;
-
-    /*
+    private float positionY;
     [SerializeField]
     private float negativemaxX;
     [SerializeField]
@@ -18,15 +15,15 @@ public class RandomPlayerSpawn : MonoBehaviour
     private float negativemaxZ;
     [SerializeField]
     private float positivemaxZ;
-    */
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        positionX = Random.Range(Global.negativemaxX, Global.positivemaxX);
-        positionZ = Random.Range(Global.negativemaxZ, Global.positivemaxZ);
-        player.transform.position = new Vector3(positionX, 0.59f, positionZ);
+        positionX = Random.Range(negativemaxX, positivemaxX);
+        positionY = Random.Range(negativemaxZ, positivemaxZ);
+        player.transform.position = new Vector3(positionX, 0.59f, positionY);
 
 
 
