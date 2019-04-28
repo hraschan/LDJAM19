@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;  
+using UnityEngine;
 
 public class PickupSpawner : MonoBehaviour
 {
     //Objects
-    public GameObject object1;
+    [SerializeField]
+    private GameObject[] RandomObjt;
     //public GameObject object2;
     //public GameObject object3;
 
@@ -26,13 +27,18 @@ public class PickupSpawner : MonoBehaviour
     {
         spawnItem();
         preventSpawnOverlap();
+         RandomObjt = Resources.LoadAll<GameObject>("Prefabs");
 
     }
-    public void spawnItem() {
+    public void spawnItem()
+    {
+        int whichItem = Random.Range(0, 4);
 
+
+        GameObject myObj = Instantiate(RandomObjt[whichItem]) as GameObject;
         bool canSpawnhere = false; ;
         int safetyNet = 0;
-        
+
 
         while (!canSpawnhere)
         {
@@ -40,29 +46,29 @@ public class PickupSpawner : MonoBehaviour
             spawnPositionZ = Random.Range(Global.negativemaxZ, Global.positivemaxZ);
             spawnPos = new Vector3(spawnPositionX, 0.59f, spawnPositionZ);
             canSpawnhere = preventSpawnOverlap();
-           
 
-            if(canSpawnhere == true)
+
+            if (canSpawnhere == true)
             {
                 break;
             }
             safetyNet++;
-            if(safetyNet > 50)
+            if (safetyNet > 50)
             {
                 break;
                 Debug.Log("To many attemts");
             }
         }
-        object1.transform.position = spawnPos;
+        myObj.transform.position = spawnPos;
     }
     bool preventSpawnOverlap()
     {
         colliders = Physics.OverlapSphere(transform.position, raduis);
-        
 
-        for(int i = 0; i < colliders.Length; i++)
+
+        for (int i = 0; i < colliders.Length; i++)
         {
-            
+
             Vector3 centerPoint = colliders[i].bounds.center;
             float width = colliders[i].bounds.extents.x;
             float length = colliders[i].bounds.extents.z;
@@ -74,8 +80,8 @@ public class PickupSpawner : MonoBehaviour
 
             if (spawnPos.x >= leftExtent && spawnPos.x <= rightExtent)
             {
-                
-                if(spawnPos.z >= lowerExtent && spawnPos.z <= upperExtent)
+
+                if (spawnPos.z >= lowerExtent && spawnPos.z <= upperExtent)
                 {
                     return false;
                 }
@@ -84,7 +90,7 @@ public class PickupSpawner : MonoBehaviour
         }
         return false;
     }
-    
+
 
 
 
@@ -93,6 +99,6 @@ public class PickupSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
