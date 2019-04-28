@@ -15,4 +15,11 @@ public static class Global
     //Bool ob gegner gesehen wurde oder nicht
     public static bool enemy = false;
 
+    //Healthbar
+    public static float max_health = 100f;
+    public static float cur_health = 0f;
+    public static float mult_health = 0f;
+
+    //Bool Feuer hat getroffen oder nicht
+    public static bool hit = false;
 }

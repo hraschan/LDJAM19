@@ -5,8 +5,8 @@ using UnityEngine;
 public class PickupSpawner : MonoBehaviour
 {
     //Objects
-    [SerializeField]
-    private GameObject[] RandomObjt;
+
+    private GameObject[] RandomObjt = new GameObject[10];
     //public GameObject object2;
     //public GameObject object3;
 
@@ -25,17 +25,19 @@ public class PickupSpawner : MonoBehaviour
 
     private void Start()
     {
+        RandomObjt = Resources.LoadAll<GameObject>("Prefab");
+        //Debug.Log(RandomObjt.Length);
         spawnItem();
         preventSpawnOverlap();
-         RandomObjt = Resources.LoadAll<GameObject>("Prefabs");
-
     }
     public void spawnItem()
     {
-        int whichItem = Random.Range(0, 4);
+        int whichItem = Random.Range(0, RandomObjt.Length);
 
 
         GameObject myObj = Instantiate(RandomObjt[whichItem]) as GameObject;
+
+        print(RandomObjt.Length);
         bool canSpawnhere = false; ;
         int safetyNet = 0;
 
@@ -64,7 +66,7 @@ public class PickupSpawner : MonoBehaviour
     bool preventSpawnOverlap()
     {
         colliders = Physics.OverlapSphere(transform.position, raduis);
-
+        
 
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -91,14 +93,4 @@ public class PickupSpawner : MonoBehaviour
         return false;
     }
 
-
-
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
