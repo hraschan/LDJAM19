@@ -12,4 +12,7 @@ public static class Global
     public static float negativemaxZ = -9.5f;
     public static float positivemaxZ = 9.5f;
 
+    //Bool ob gegner gesehen wurde oder nicht
+    public static bool enemy = false;
+
 }
