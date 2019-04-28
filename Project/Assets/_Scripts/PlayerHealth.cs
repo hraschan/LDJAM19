@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
     {
         //Global.cur_health -= 5f;
         float calc_Health = Global.cur_health  / Global.max_health; // Wenn cur_health 80 ist und max_health 100, kommt scale 0.8 für die bar raus
-        Debug.Log(calc_Health);
+        //Debug.Log(calc_Health);
         if(calc_Health >= 0)
         {
             SetHealthBar(calc_Health);

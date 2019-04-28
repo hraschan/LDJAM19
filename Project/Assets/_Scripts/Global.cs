@@ -23,4 +23,14 @@ public static class Global
 
     //Bool Feuer hat getroffen oder nicht
     public static bool hit = false;
+
+    public static  string TagName = "Nicht befüllt";
+
+    public static bool körper = false;
+    public static bool perrücke = false;
+    public static bool kopf = false;
+    public static bool bein = false;
+    public static bool schraube = false;
+    public static bool arm = false;
+    public static bool auge = false;
 }
