@@ -5,7 +5,7 @@ using UnityEngine;
 public class PickupSpawner : MonoBehaviour
 {
     //Objects
-    public GameObject[] RadomObjt = Random.;
+    //public GameObject[] RadomObjt = Random;
     //public GameObject object2;
     //public GameObject object3;
 
@@ -54,7 +54,7 @@ public class PickupSpawner : MonoBehaviour
                 Debug.Log("To many attemts");
             }
         }
-        object1.transform.position = spawnPos;
+        //object1.transform.position = spawnPos;
     }
     bool preventSpawnOverlap()
     {
