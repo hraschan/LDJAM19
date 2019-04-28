@@ -6,7 +6,7 @@ using System.Linq;
 public class PickupSpawner : MonoBehaviour
 {
     //Objects
-
+    [SerializeField]
     private Object[] originals = new GameObject[7];
     //public GameObject object2;
     //public GameObject object3;
@@ -23,12 +23,11 @@ public class PickupSpawner : MonoBehaviour
     private float spawnPositionZ2;
     Vector3 spawnPos;
     // Start is called before the first frame update
-    string midPath = "/prefab";
+    //string midPath = "/Prefab";
     // Use this for initialization
     void Start()
     {
-       originals = Resources.LoadAll(midPath, typeof(GameObject[])) as GameObject[];
-        Debug.Log("")
+       //originals = Resources.LoadAll(midPath, typeof(GameObject[])) as GameObject[];
         
         preventSpawnOverlap();
         spawnItem();
@@ -36,10 +35,11 @@ public class PickupSpawner : MonoBehaviour
 
     public void spawnItem()
     {
-        int a = Random.Range(0,7); //NullReferenceException here
-        GameObject original = Instantiate(originals[1]) as GameObject;
-        
-        
+       int a = Random.Range(0,7); //NullReferenceException here
+        GameObject original = originals[1] as GameObject;
+        //Debug.Log("Name" + originals[0]);
+
+
         bool canSpawnhere = false; ;
         int safetyNet = 0;
 
@@ -64,7 +64,7 @@ public class PickupSpawner : MonoBehaviour
             }
         }
         original.transform.position = spawnPos;
-        original.transform.localScale += new Vector3(100, 100, 100);
+        original.transform.localScale = new Vector3(100, 100, 100);
 
     }
     bool preventSpawnOverlap()
