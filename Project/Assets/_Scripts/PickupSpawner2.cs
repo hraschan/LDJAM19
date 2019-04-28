@@ -32,7 +32,7 @@ public class PickupSpawner2 : MonoBehaviour
     }
     public void spawnItem()
     {
-        int whichItem = Random.Range(0, 4);
+        int whichItem = Random.Range(0, 6);
 
 
         GameObject myObj = Instantiate(RandomObjt[whichItem]) as GameObject;
