@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;  
+using UnityEngine;
 
 public class PickupSpawner : MonoBehaviour
 {
@@ -28,11 +28,12 @@ public class PickupSpawner : MonoBehaviour
         preventSpawnOverlap();
 
     }
-    public void spawnItem() {
+    public void spawnItem()
+    {
 
         bool canSpawnhere = false; ;
         int safetyNet = 0;
-        
+
 
         while (!canSpawnhere)
         {
@@ -40,14 +41,14 @@ public class PickupSpawner : MonoBehaviour
             spawnPositionZ = Random.Range(Global.negativemaxZ, Global.positivemaxZ);
             spawnPos = new Vector3(spawnPositionX, 0.59f, spawnPositionZ);
             canSpawnhere = preventSpawnOverlap();
-           
 
-            if(canSpawnhere == true)
+
+            if (canSpawnhere == true)
             {
                 break;
             }
             safetyNet++;
-            if(safetyNet > 50)
+            if (safetyNet > 50)
             {
                 break;
                 Debug.Log("To many attemts");
@@ -58,11 +59,11 @@ public class PickupSpawner : MonoBehaviour
     bool preventSpawnOverlap()
     {
         colliders = Physics.OverlapSphere(transform.position, raduis);
-        
 
-        for(int i = 0; i < colliders.Length; i++)
+
+        for (int i = 0; i < colliders.Length; i++)
         {
-            
+
             Vector3 centerPoint = colliders[i].bounds.center;
             float width = colliders[i].bounds.extents.x;
             float length = colliders[i].bounds.extents.z;
@@ -74,8 +75,8 @@ public class PickupSpawner : MonoBehaviour
 
             if (spawnPos.x >= leftExtent && spawnPos.x <= rightExtent)
             {
-                
-                if(spawnPos.z >= lowerExtent && spawnPos.z <= upperExtent)
+
+                if (spawnPos.z >= lowerExtent && spawnPos.z <= upperExtent)
                 {
                     return false;
                 }
@@ -84,7 +85,7 @@ public class PickupSpawner : MonoBehaviour
         }
         return false;
     }
-    
+
 
 
 
@@ -93,6 +94,6 @@ public class PickupSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
