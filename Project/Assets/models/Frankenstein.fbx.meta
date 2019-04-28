@@ -1,12 +1,25 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 308a442437489404da1bf1cfc36581ed
+=======
+guid: d45331e8a1a3a12439a326b4d6b140e9
+>>>>>>> 6b7e19800ee8196f8d05eedf90c6c49eca82ab18
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
     second: Take 001
+<<<<<<< HEAD
   externalObjects: {}
+=======
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Haut
+    second: {fileID: 2100000, guid: ef35d2ffcdb73574489f805081fe6686, type: 2}
+>>>>>>> 6b7e19800ee8196f8d05eedf90c6c49eca82ab18
   materials:
     importMaterials: 1
     materialName: 0
