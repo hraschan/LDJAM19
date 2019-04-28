@@ -26,7 +26,7 @@ public class enemyHit : MonoBehaviour
         if (other.gameObject.tag == "player")
         {
             Global.cur_health = -20f;
-            Debug.Log("chrash");
+            Debug.Log("crash");
         }
         // Global.cur_health = -20f;
         //MyFunction(time);
