@@ -18,8 +18,13 @@ public class WaypointsNPC : MonoBehaviour
     {
         if (!Global.enemy)
         {
-
+            waypoint();
         }
+        else
+        {
+            followPlayer();
+        }
+        
 }
     void waypoint()
     {
@@ -32,5 +37,9 @@ public class WaypointsNPC : MonoBehaviour
             }
         }
         transform.position = Vector3.MoveTowards(transform.position, waypoints[current].transform.position, Time.deltaTime * speed);
+    }
+    void followPlayer()
+    {
+
     }
 }
