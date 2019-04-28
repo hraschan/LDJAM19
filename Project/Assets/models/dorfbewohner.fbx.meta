@@ -2,17 +2,10 @@ fileFormatVersion: 2
 guid: c8d547f302aedb643a869551d69ac7db
 ModelImporter:
   serializedVersion: 25
-<<<<<<< HEAD
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
     second: Take 001
-<<<<<<< HEAD
-=======
-=======
-  internalIDToNameTable: []
->>>>>>> ac86117cf4f2fe8911b887e130801cdd5436746d
->>>>>>> 9aff252761a59c1903fb2b773fed52dfc9b845a3
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -53,7 +46,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
