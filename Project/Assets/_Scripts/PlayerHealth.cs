@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float max_health = 100f;
-    public float cur_health = 0f;
+    
     public GameObject healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
-        cur_health = max_health;
+        Global.cur_health = Global.max_health;
         InvokeRepeating("decreasehealth", 1f,1f);
     }
 
@@ -22,9 +21,13 @@ public class PlayerHealth : MonoBehaviour
     }
     void decreasehealth()
     {
-        cur_health -= 5f;
-        float calc_Health = cur_health / max_health; // Wenn cur_health 80 ist und max_health 100, kommt scale 0.8 für die bar raus
-        SetHealthBar(calc_Health);
+        Global.cur_health -= 5f;
+        float calc_Health = Global.cur_health  / Global.max_health; // Wenn cur_health 80 ist und max_health 100, kommt scale 0.8 für die bar raus
+        if(calc_Health >= 0)
+        {
+            SetHealthBar(calc_Health);
+        }
+       
     }
 
     public void SetHealthBar(float myHealth)
