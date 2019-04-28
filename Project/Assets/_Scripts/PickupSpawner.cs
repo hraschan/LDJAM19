@@ -6,7 +6,7 @@ public class PickupSpawner : MonoBehaviour
 {
     //Objects
     [SerializeField]
-    private GameObject[] object1;
+    private GameObject[] myObjects;
     //public GameObject object2;
     //public GameObject object3;
 
@@ -27,21 +27,16 @@ public class PickupSpawner : MonoBehaviour
     {
         spawnItem();
         preventSpawnOverlap();
-        object1 = Resources.LoadAll<GameObject>("Prefab");
-
+        myObjects = Resources.LoadAll<GameObject>("Prefab");
     }
-    void SpawnRandomObject()
-    {
-        //spawns item in array position between 0 and 100
-        string whichItem = Random.Range(0, 100).ToString();  
 
-        //GameObject myObj = Instantiate(object1[whichItem]) as GameObject;
-    }
     public void spawnItem() {
 
         bool canSpawnhere = false; ;
         int safetyNet = 0;
-        
+        int whichItem = Random.Range(1, 6);
+        GameObject myObj = Instantiate(myObjects[whichItem]) as GameObject;
+        //GameObject myObj = Instantiate() as GameObject;
 
         while (!canSpawnhere)
         {
@@ -49,9 +44,9 @@ public class PickupSpawner : MonoBehaviour
             spawnPositionZ = Random.Range(Global.negativemaxZ, Global.positivemaxZ);
             spawnPos = new Vector3(spawnPositionX, 0.59f, spawnPositionZ);
             canSpawnhere = preventSpawnOverlap();
-           
-
-            if(canSpawnhere == true)
+            //spawns item in array position between 0 and 6
+            
+            if (canSpawnhere == true)
             {
                 break;
             }
@@ -62,7 +57,7 @@ public class PickupSpawner : MonoBehaviour
                 Debug.Log("To many attemts");
             }
         }
-       // object1.transform.position = spawnPos;
+        myObj.transform.position = spawnPos;
     }
     bool preventSpawnOverlap()
     {
