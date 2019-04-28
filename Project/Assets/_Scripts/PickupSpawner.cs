@@ -5,7 +5,8 @@ using UnityEngine;
 public class PickupSpawner : MonoBehaviour
 {
     //Objects
-    //public GameObject[] RadomObjt = Random;
+    [SerializeField]
+    private GameObject[] RandomObjt;
     //public GameObject object2;
     //public GameObject object3;
 
@@ -26,11 +27,15 @@ public class PickupSpawner : MonoBehaviour
     {
         spawnItem();
         preventSpawnOverlap();
+         RandomObjt = Resources.LoadAll<GameObject>("Prefabs");
 
     }
     public void spawnItem()
     {
+        int whichItem = Random.Range(0, 4);
 
+
+        GameObject myObj = Instantiate(RandomObjt[whichItem]) as GameObject;
         bool canSpawnhere = false; ;
         int safetyNet = 0;
 
@@ -54,7 +59,7 @@ public class PickupSpawner : MonoBehaviour
                 Debug.Log("To many attemts");
             }
         }
-        //object1.transform.position = spawnPos;
+        myObj.transform.position = spawnPos;
     }
     bool preventSpawnOverlap()
     {
