@@ -7,6 +7,9 @@ public class PlayerHealthScript : MonoBehaviour
     public float max_Health = 100f;
     public float cur_Health = 0f;
 
+    float curTime = 0;
+    float nextDamage = 1;
+
     public GameObject healthBar;
     // Start is called before the first frame update
     void Start()
@@ -32,5 +35,24 @@ public class PlayerHealthScript : MonoBehaviour
         healthBar.transform.localScale = new Vector3(Mathf.Clamp(myHealth, 0f, 1f),
                                                      healthBar.transform.localScale.y,
                                                      healthBar.transform.localScale.z);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+
+        if (other.gameObject.tag == "enemy")
+        {
+            if (curTime <= 0)
+            {
+            cur_Health = cur_Health -10f;
+            Debug.Log("krach");
+                curTime = nextDamage;
+            }
+            else
+            {
+
+                curTime -= Time.deltaTime;
+            }
+        }
     }
 }
