@@ -6,7 +6,7 @@ public class PickupSpawner : MonoBehaviour
 {
     //Objects
 
-    private GameObject[] RandomObjt;
+    private GameObject[] RandomObjt = new GameObject[10];
     //public GameObject object2;
     //public GameObject object3;
 
@@ -25,9 +25,8 @@ public class PickupSpawner : MonoBehaviour
 
     private void Start()
     {
-        
-        
         RandomObjt = Resources.LoadAll<GameObject>("Prefab");
+        //Debug.Log(RandomObjt.Length);
         spawnItem();
         preventSpawnOverlap();
     }

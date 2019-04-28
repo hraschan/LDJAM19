@@ -6,21 +6,36 @@ public class enemyHit : MonoBehaviour
 {
     private GameObject player;
     float time = 1;
-
+    bool fire = false;
     private void Start()
     {
-        StartCoroutine(MyFunction(time));
+        //StartCoroutine(MyFunction(time));
     }
 
-    private void OnTriggerEnters (Collider other)
+    private void Update()
     {
-        //if (other.gameObject.tag == "player")
-            //Debug.Log("chrash");
+        if (fire)
+        {
             Global.cur_health = Global.cur_health - 20f;
-            //MyFunction(time);
-            
-        
+
+        }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        //fire = true;
+        if (other.gameObject.tag == "player")
+        {
+            Global.cur_health = -20f;
+            Debug.Log("chrash");
+        }
+        // Global.cur_health = -20f;
+        //MyFunction(time);
+
+    }
+    //private void OnTriggerExit(Collider other)
+   
+
+
     IEnumerator MyFunction(float Time)
     {
         yield return new WaitForSeconds(time);
