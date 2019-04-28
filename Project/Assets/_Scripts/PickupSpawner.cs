@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PickupSpawner : MonoBehaviour
 {
     //Objects
 
-    private GameObject[] RandomObjt = new GameObject[10];
+    private Object[] originals = new GameObject[7];
     //public GameObject object2;
     //public GameObject object3;
 
@@ -22,22 +23,23 @@ public class PickupSpawner : MonoBehaviour
     private float spawnPositionZ2;
     Vector3 spawnPos;
     // Start is called before the first frame update
-
-    private void Start()
+    string midPath = "/prefab";
+    // Use this for initialization
+    void Start()
     {
-        RandomObjt = Resources.LoadAll<GameObject>("Prefab");
-        //Debug.Log(RandomObjt.Length);
-        spawnItem();
+       originals = Resources.LoadAll(midPath, typeof(GameObject[])) as GameObject[];
+        Debug.Log("")
+        
         preventSpawnOverlap();
+        spawnItem();
     }
+
     public void spawnItem()
     {
-        int whichItem = Random.Range(0, RandomObjt.Length);
-
-
-        GameObject myObj = Instantiate(RandomObjt[whichItem]) as GameObject;
-
-        print(RandomObjt.Length);
+        int a = Random.Range(0,7); //NullReferenceException here
+        GameObject original = Instantiate(originals[1]) as GameObject;
+        
+        
         bool canSpawnhere = false; ;
         int safetyNet = 0;
 
@@ -61,7 +63,9 @@ public class PickupSpawner : MonoBehaviour
                 Debug.Log("To many attemts");
             }
         }
-        myObj.transform.position = spawnPos;
+        original.transform.position = spawnPos;
+        original.transform.localScale += new Vector3(100, 100, 100);
+
     }
     bool preventSpawnOverlap()
     {
