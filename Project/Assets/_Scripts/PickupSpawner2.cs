@@ -16,18 +16,17 @@ public class PickupSpawner2 : MonoBehaviour
     //Positions
     private float spawnPositionX;
     private float spawnPositionZ;
-    private float spawnPositionX1;
-    private float spawnPositionZ1;
-    private float spawnPositionX2;
-    private float spawnPositionZ2;
+
     Vector3 spawnPos;
     // Start is called before the first frame update
 
     private void Start()
     {
+        for(int i =1; i <4; i++) { 
         spawnItem();
         preventSpawnOverlap();
-         //RandomObjt = Resources.LoadAll<GameObject>("Prefabs");
+        }
+        //RandomObjt = Resources.LoadAll<GameObject>("Prefabs");
 
     }
     public void spawnItem()
