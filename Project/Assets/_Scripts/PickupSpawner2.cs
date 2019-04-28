@@ -1,15 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
-public class PickupSpawner : MonoBehaviour
+public class PickupSpawner2 : MonoBehaviour
 {
     //Objects
     [SerializeField]
-    private Object[] originals = new GameObject[7];
-    [SerializeField]
-    private GameObject original ;
+    private GameObject[] RandomObjt;
+    //public GameObject object2;
+    //public GameObject object3;
 
     //Collider
     public Collider[] colliders;
@@ -17,27 +16,26 @@ public class PickupSpawner : MonoBehaviour
     //Positions
     private float spawnPositionX;
     private float spawnPositionZ;
-
+    private float spawnPositionX1;
+    private float spawnPositionZ1;
+    private float spawnPositionX2;
+    private float spawnPositionZ2;
     Vector3 spawnPos;
     // Start is called before the first frame update
-    //string midPath = "/Prefab";
-    // Use this for initialization
-    void Start()
+
+    private void Start()
     {
-        //originals = Resources.LoadAll(midPath, typeof(GameObject[])) as GameObject[];
-        //original = new GameObject();
-        
         spawnItem();
         preventSpawnOverlap();
-    }
+         //RandomObjt = Resources.LoadAll<GameObject>("Prefabs");
 
+    }
     public void spawnItem()
     {
-       //int a = Random.Range(0,7); //NullReferenceException here
-        // original = originals[1] as GameObject;
-        //Debug.Log("Name" + originals[0]);
+        int whichItem = Random.Range(0, 4);
 
 
+        GameObject myObj = Instantiate(RandomObjt[whichItem]) as GameObject;
         bool canSpawnhere = false; ;
         int safetyNet = 0;
 
@@ -61,15 +59,12 @@ public class PickupSpawner : MonoBehaviour
                 Debug.Log("To many attemts");
             }
         }
-        Debug.Log("Position: " + spawnPos);
-        original.transform.position = spawnPos;
-       // original.transform.localScale = new Vector3(100, 100, 100);
-
+        myObj.transform.position = spawnPos;
     }
     bool preventSpawnOverlap()
     {
         colliders = Physics.OverlapSphere(transform.position, raduis);
-        
+
 
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -96,4 +91,14 @@ public class PickupSpawner : MonoBehaviour
         return false;
     }
 
+
+
+
+
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }
