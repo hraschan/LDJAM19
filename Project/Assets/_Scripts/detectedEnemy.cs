@@ -12,6 +12,7 @@ public class detectedEnemy : MonoBehaviour
         if(other.gameObject.tag == "player")
         {
             //Globaler Bool auf true - Danach wird followPlayer ausgeführt.
+            Debug.Log("Player Detected");
             Global.enemy = true;
         }
     }
