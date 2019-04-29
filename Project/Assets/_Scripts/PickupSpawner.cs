@@ -58,7 +58,7 @@ public class PickupSpawner : MonoBehaviour
             if (safetyNet > 50)
             {
                 break;
-                Debug.Log("To many attemts");
+               // Debug.Log("To many attemts");
             }
         }
         Debug.Log("Position: " + spawnPos);
