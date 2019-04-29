@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class FrankensteinController : MonoBehaviour
 {
-    [SerializeField]
-    int speedLimit;
 
-    public float moveSpeed;
+    private int speedLimit = 3;
+
+    private float moveSpeed = 150;
     private Rigidbody r;
 
     // Use this for initialization
@@ -22,25 +22,27 @@ public class FrankensteinController : MonoBehaviour
         //Moves Forward and back along z axis                           //Up/Down 
         //transform.Translate(Vector3.forward * Time.deltaTime * Input.GetAxis("Vertical") * moveSpeed);
         float x = Time.deltaTime * Input.GetAxis("Horizontal") * moveSpeed;
-        if (Input.GetAxis("Horizontal") == 0) r.velocity = new Vector3(0, 0, r.velocity.z);
         float z = Time.deltaTime * Input.GetAxis("Vertical") * moveSpeed;
-        if (Input.GetAxis("Vertical") == 0) r.velocity = new Vector3(r.velocity.x, 0, 0);
+
+        x = Mathf.Clamp(x, -speedLimit, speedLimit);
+        z = Mathf.Clamp(z, -speedLimit, speedLimit);
+
 
         Debug.Log(x + " " + z);
 
-        Vector3 speed = r.velocity;
-        float newX = Mathf.Clamp(speed.x, -speedLimit, speedLimit);
-        float newZ = Mathf.Clamp(speed.z, -speedLimit, speedLimit);
-
-        r.velocity = new Vector3(newX, 0, newZ);
-
-        this.GetComponent<Rigidbody>().AddForce(x, 0, z);
-
+        r.velocity = new Vector3(x, 0, z);
 
         //Moves Left and right along x Axis                               //Left/Right
         //transform.Translate(Vector3.right * Time.deltaTime * Input.GetAxis("Horizontal") * moveSpeed);
 
 
-       
+        //this.GetComponent<Rigidbody>().AddForce(x, 0, z);
+
+        //Vector3 speed = r.velocity;
+        //float newX = Mathf.Clamp(speed.x, -speedLimit, speedLimit);
+        //float newZ = Mathf.Clamp(speed.z, -speedLimit, speedLimit);
+
+
+
     }
 }
