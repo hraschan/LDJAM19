@@ -88,26 +88,38 @@ public class CollisionScriptPickup : MonoBehaviour
         {
             case "arm":
                 Global.arm = true;
+                Debug.Log("Aufgehoben");
                 deactiveText();
                 break;
             case "körper":
                 Global.körper = true;
+                Debug.Log("Aufgehoben");
                 deactiveText();
                 break;
             case "bein":
-                Global.bein = true; deactiveText();
+                Global.bein = true;
+                Debug.Log("Aufgehoben");
+                deactiveText();
                 break;
             case "perrücke":
-                Global.perrücke = true; deactiveText();
+                Global.perrücke = true;
+                Debug.Log("Aufgehoben");
+                deactiveText();
                 break;
             case "schraube":
-                Global.schraube = true; deactiveText();
+                Global.schraube = true;
+                Debug.Log("Aufgehoben");
+                deactiveText();
                 break;
             case "kopf":
-                Global.kopf = true; deactiveText();
+                Global.kopf = true;
+                Debug.Log("Aufgehoben");
+                deactiveText();
                 break;
             case "auge":
-                Global.auge = true; deactiveText();
+                Global.auge = true;
+                Debug.Log("Aufgehoben");
+                deactiveText();
                 break;
 
 
