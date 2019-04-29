@@ -43,30 +43,42 @@ public class CollisionScriptPickup : MonoBehaviour
         {
             case "arm":
                 Destroy(GameObject.FindGameObjectWithTag("arm"));
+                Debug.Log("Arm gefresse");
+                Global.cur_health = Global.cur_health + 20f;
                 deactiveText();
                 break;
             case "körper":
                 Destroy(GameObject.FindGameObjectWithTag("körper"));
+                Debug.Log("Körper gefressen");
+                Global.cur_health = Global.cur_health + 20f;
                 deactiveText();
                 break;
             case "bein":
                 Destroy(GameObject.FindGameObjectWithTag("bein"));
+                Debug.Log("Bein gefressen");
+                Global.cur_health = Global.cur_health + 20f;
                 deactiveText();
                 break;
             case "perrücke":
                 Destroy(GameObject.FindGameObjectWithTag("perrücke"));
-                deactiveText();
+                Debug.Log("Perrücke gefressen");
+                Global.cur_Health -= 2f; deactiveText();
                 break;
             case "schraube":
                 Destroy(GameObject.FindGameObjectWithTag("schraube"));
-                deactiveText();
+                Debug.Log("Schraube gefressen");
+                Global.cur_Health -= 2f; deactiveText();
                 break;
             case "kopf":
                 Destroy(GameObject.FindGameObjectWithTag("kopf"));
+                Debug.Log("Kopf gefressen");
+                Global.cur_Health = Global.cur_health + 20f;
                 deactiveText();
                 break;
             case "auge":
                 Destroy(GameObject.FindGameObjectWithTag("auge"));
+                Debug.Log("Auge gefressen");
+                Global.cur_Health = Global.cur_health + 20f;
                 deactiveText();
                 break;
 
