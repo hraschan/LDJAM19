@@ -14,4 +14,9 @@ public class GameManager_Menu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void retryLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
