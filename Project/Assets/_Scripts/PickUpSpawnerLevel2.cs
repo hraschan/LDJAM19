@@ -1,15 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public class PickUpSpawnerLevel2 : MonoBehaviour
 {
     //Objects
     [SerializeField]
-    private Object[] originals = new GameObject[7];
-    [SerializeField]
-    private GameObject original;
+    private GameObject[] RandomObjt;
+    //public GameObject object2;
+    //public GameObject object3;
 
     //Collider
     public Collider[] colliders;
@@ -20,24 +19,23 @@ public class PickUpSpawnerLevel2 : MonoBehaviour
 
     Vector3 spawnPos;
     // Start is called before the first frame update
-    //string midPath = "/Prefab";
-    // Use this for initialization
-    void Start()
+
+    private void Start()
     {
-        //originals = Resources.LoadAll(midPath, typeof(GameObject[])) as GameObject[];
-        //original = new GameObject();
+        for (int i = 1; i < 4; i++)
+        {
+            spawnItem();
+            preventSpawnOverlap();
+        }
+        //RandomObjt = Resources.LoadAll<GameObject>("Prefabs");
 
-        spawnItem();
-        preventSpawnOverlap();
     }
-
     public void spawnItem()
     {
-        //int a = Random.Range(0,7); //NullReferenceException here
-        // original = originals[1] as GameObject;
-        //Debug.Log("Name" + originals[0]);
+        int whichItem = Random.Range(0, 6);
 
 
+        GameObject myObj = Instantiate(RandomObjt[whichItem]) as GameObject;
         bool canSpawnhere = false; ;
         int safetyNet = 0;
 
@@ -58,13 +56,10 @@ public class PickUpSpawnerLevel2 : MonoBehaviour
             if (safetyNet > 50)
             {
                 break;
-                // Debug.Log("To many attemts");
+                Debug.Log("To many attemts");
             }
         }
-        Debug.Log("Position: " + spawnPos);
-        original.transform.position = spawnPos;
-        // original.transform.localScale = new Vector3(100, 100, 100);
-
+        myObj.transform.position = spawnPos;
     }
     bool preventSpawnOverlap()
     {
@@ -96,4 +91,14 @@ public class PickUpSpawnerLevel2 : MonoBehaviour
         return false;
     }
 
+
+
+
+
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }
