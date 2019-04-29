@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealthScript : MonoBehaviour
 {
@@ -21,7 +22,11 @@ public class PlayerHealthScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Global.cur_Health <= 0)
+        {
+            Debug.Log("Hinnig");
+            SceneManager.LoadScene("Menu");
+        }
     }
     void decreasehealth()
     {
