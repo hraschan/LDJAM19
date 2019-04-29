@@ -24,6 +24,8 @@ public class GameEnderTo3 : MonoBehaviour
         {
             Debug.Log("Yahuuuuuuu");
             SceneManager.LoadScene("Level 3");
+            Global.anzahlaufgehoben = 0;
+
         }
     }
 }

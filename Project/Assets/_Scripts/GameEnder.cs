@@ -24,6 +24,7 @@ public class GameEnder : MonoBehaviour
         {
             Debug.Log("Yahuuuuuuu");
             SceneManager.LoadScene("Level 2");
+            Global.anzahlaufgehoben = 0;
         }
     }
 }
