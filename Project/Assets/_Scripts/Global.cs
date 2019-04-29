@@ -34,4 +34,7 @@ public static class Global
     public static bool schraube = false;
     public static bool arm = false;
     public static bool auge = false;
+
+
+    public static float anzahlaufgehoben = 0;
 }

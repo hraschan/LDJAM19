@@ -9,6 +9,10 @@ public class CollisionScriptPickup : MonoBehaviour
     public Text aufhebentext;
     public Button essenbutton;
     public Button ignorierenbutton;
+
+    public GameObject endportal;
+    public GameObject endcollider;
+
     private string[] pickupNames= new string[7];
     GameObject körper;
     
@@ -103,36 +107,43 @@ public class CollisionScriptPickup : MonoBehaviour
             case "arm":
                 Global.arm = true;
                 Debug.Log("Aufgehoben");
+                Global.anzahlaufgehoben = Global.anzahlaufgehoben + 1;
                 deactiveText();
                 break;
             case "körper":
                 Global.körper = true;
                 Debug.Log("Aufgehoben");
+                Global.anzahlaufgehoben = Global.anzahlaufgehoben + 1;
                 deactiveText();
                 break;
             case "bein":
                 Global.bein = true;
                 Debug.Log("Aufgehoben");
+                Global.anzahlaufgehoben = Global.anzahlaufgehoben + 1;
                 deactiveText();
                 break;
             case "perrücke":
                 Global.perrücke = true;
                 Debug.Log("Aufgehoben");
+                Global.anzahlaufgehoben = Global.anzahlaufgehoben + 1;
                 deactiveText();
                 break;
             case "schraube":
                 Global.schraube = true;
                 Debug.Log("Aufgehoben");
+                Global.anzahlaufgehoben = Global.anzahlaufgehoben + 1;
                 deactiveText();
                 break;
             case "kopf":
                 Global.kopf = true;
                 Debug.Log("Aufgehoben");
+                Global.anzahlaufgehoben = Global.anzahlaufgehoben + 1;
                 deactiveText();
                 break;
             case "auge":
                 Global.auge = true;
                 Debug.Log("Aufgehoben");
+                Global.anzahlaufgehoben = Global.anzahlaufgehoben + 1;
                 deactiveText();
                 break;
 
@@ -140,6 +151,16 @@ public class CollisionScriptPickup : MonoBehaviour
         }
 
 
+    }
+
+    private void Update()
+    {
+        if(Global.anzahlaufgehoben >= 2)
+        {
+            // Debug.Log("Wird sichtbar");
+            endportal.gameObject.SetActive(true);
+            endcollider.gameObject.SetActive(true);
+        }
     }
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
