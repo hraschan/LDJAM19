@@ -14,4 +14,15 @@ public class GameManager_Menu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void retryLevel()
+    {
+        Debug.Log("test");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void test()
+    {
+        Debug.Log("testtest");
+    }
 }
