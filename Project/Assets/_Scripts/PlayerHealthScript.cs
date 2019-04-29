@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHealthScript : MonoBehaviour
 {
     public float max_Health = 100f;
-    public float cur_Health = 0f;
+   // public float cur_Health = 0f;
 
     float curTime = 0;
     float nextDamage = 1;
@@ -14,7 +14,7 @@ public class PlayerHealthScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cur_Health = max_Health;
+        Global.cur_Health = max_Health;
         InvokeRepeating("decreasehealth", 1f, 1f);
     }
 
@@ -25,8 +25,8 @@ public class PlayerHealthScript : MonoBehaviour
     }
     void decreasehealth()
     {
-        cur_Health -= 2f;
-        float calc_Health = cur_Health / max_Health;
+        Global.cur_Health -= 2f;
+        float calc_Health = Global.cur_Health / max_Health;
         SetHealthBar(calc_Health);
     }
 
@@ -44,7 +44,7 @@ public class PlayerHealthScript : MonoBehaviour
         {
             if (curTime <= 0)
             {
-            cur_Health = cur_Health -10f;
+            Global.cur_Health = Global.cur_Health -10f;
             Debug.Log("krach");
                 curTime = nextDamage;
             }
