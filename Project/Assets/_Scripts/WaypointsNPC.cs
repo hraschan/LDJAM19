@@ -24,13 +24,15 @@ public class WaypointsNPC : MonoBehaviour
             }
     void Update()
     {
+        waypoint();
         if (!Global.enemy)
         {
-            waypoint();
+            
         }
         else
         {
-            followPlayer();
+            //Debug.Log("followMEEE");
+            //followPlayer();
         }
         
 }
@@ -39,7 +41,7 @@ public class WaypointsNPC : MonoBehaviour
         if (Vector3.Distance(waypoints[current].transform.position, transform.position) < WPradius)
         {
             current++;
-            if (current >= waypoints.Length)
+            if (current >= waypoints.Length -1)
             {
                 current = 0;
             }
