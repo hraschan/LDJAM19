@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class detectedEnemy : MonoBehaviour
 {
-    private GameObject player;
+    
 
     private void OnTriggerEnter(Collider other)
     {
