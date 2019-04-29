@@ -25,7 +25,7 @@ public class PlayerHealthScript : MonoBehaviour
     }
     void decreasehealth()
     {
-        cur_Health -= 5f;
+        cur_Health -= 2f;
         float calc_Health = cur_Health / max_Health;
         SetHealthBar(calc_Health);
     }
