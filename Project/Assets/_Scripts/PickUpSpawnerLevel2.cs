@@ -44,7 +44,7 @@ public class PickUpSpawnerLevel2 : MonoBehaviour
         {
             spawnPositionX = Random.Range(Global.negativemaxX, Global.positivemaxX);
             spawnPositionZ = Random.Range(Global.negativemaxZ, Global.positivemaxZ);
-            spawnPos = new Vector3(spawnPositionX, 1.37f, spawnPositionZ);
+            spawnPos = new Vector3(spawnPositionX, 1.6f, spawnPositionZ);
             canSpawnhere = preventSpawnOverlap();
 
 
