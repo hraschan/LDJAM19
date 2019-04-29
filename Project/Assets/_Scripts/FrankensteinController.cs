@@ -7,7 +7,7 @@ public class FrankensteinController : MonoBehaviour
 
     private int speedLimit = 3;
 
-    private float moveSpeed = 150;
+    private float moveSpeed = 250;
     private Rigidbody r;
 
     // Use this for initialization
