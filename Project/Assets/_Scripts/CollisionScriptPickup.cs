@@ -97,53 +97,55 @@ public class CollisionScriptPickup : MonoBehaviour
 
     {
 
-        if (Global.TagName == "körper")
-        {
-
-            Destroy(GameObject.FindGameObjectWithTag("körper"));
-        }
         switch (Global.TagName)
         {
             case "arm":
                 Global.arm = true;
                 Debug.Log("Aufgehoben");
                 Global.anzahlaufgehoben = Global.anzahlaufgehoben + 1;
+                Destroy(GameObject.FindGameObjectWithTag("arm"));
                 deactiveText();
                 break;
             case "körper":
                 Global.körper = true;
                 Debug.Log("Aufgehoben");
                 Global.anzahlaufgehoben = Global.anzahlaufgehoben + 1;
+                Destroy(GameObject.FindGameObjectWithTag("körper"));
                 deactiveText();
                 break;
             case "bein":
                 Global.bein = true;
                 Debug.Log("Aufgehoben");
                 Global.anzahlaufgehoben = Global.anzahlaufgehoben + 1;
+                Destroy(GameObject.FindGameObjectWithTag("bein"));
                 deactiveText();
                 break;
             case "perrücke":
                 Global.perrücke = true;
                 Debug.Log("Aufgehoben");
                 Global.anzahlaufgehoben = Global.anzahlaufgehoben + 1;
+                Destroy(GameObject.FindGameObjectWithTag("perrücke"));
                 deactiveText();
                 break;
             case "schraube":
                 Global.schraube = true;
                 Debug.Log("Aufgehoben");
                 Global.anzahlaufgehoben = Global.anzahlaufgehoben + 1;
+                Destroy(GameObject.FindGameObjectWithTag("schraube"));
                 deactiveText();
                 break;
             case "kopf":
                 Global.kopf = true;
                 Debug.Log("Aufgehoben");
                 Global.anzahlaufgehoben = Global.anzahlaufgehoben + 1;
+                Destroy(GameObject.FindGameObjectWithTag("kopf"));
                 deactiveText();
                 break;
             case "auge":
                 Global.auge = true;
                 Debug.Log("Aufgehoben");
                 Global.anzahlaufgehoben = Global.anzahlaufgehoben + 1;
+                Destroy(GameObject.FindGameObjectWithTag("auge"));
                 deactiveText();
                 break;
 
